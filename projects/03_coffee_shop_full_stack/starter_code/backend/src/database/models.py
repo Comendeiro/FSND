@@ -38,9 +38,7 @@ def db_drop_and_create_all():
         title='water',
         recipe='[{"name": "water", "color": "blue", "parts": 1}]'
     )
-
-
-drink.insert()
+    drink.insert()
 # ROUTES
 
 '''
@@ -51,7 +49,7 @@ a persistent drink entity, extends the base SQLAlchemy Model
 
 class Drink(db.Model):
     # Autoincrementing, unique primary key
-    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
+    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True, autoincrement=True)
     # String Title
     title = Column(String(80), unique=True)
     # the ingredients blob - this stores a lazy json blob
